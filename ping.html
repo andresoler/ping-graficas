@@ -1,0 +1,310 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Ping a url</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="dist/css/adminlte.min.css">
+
+    <!-- Google Font: Source Sans Pro -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+</head>
+<body class="hold-transition sidebar-mini">
+<div class="wrapper">
+  
+    <!-- Main Sidebar Container -->
+    <aside class="main-sidebar sidebar-dark-primary elevation-4">
+        <!-- Brand Logo -->
+        <a href="" class="brand-link">
+            <img src="dist/img/logo.jpg"
+                 alt="Logo"
+                 class="brand-image img-circle elevation-3"
+                 style="opacity: .8">
+            <span class="brand-text font-weight-light">ByAndres</span>
+        </a>
+
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <!-- Sidebar user panel (optional) -->
+            <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+                <div class="image">
+                    <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+                </div>
+                <div class="info">
+                    <a href="#" class="d-block">David Yate</a>
+                </div>
+            </div>
+
+            <!-- Sidebar Menu -->
+            <nav class="mt-2">
+                <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
+                    data-accordion="false">
+                    <!-- Add icons to the links using the .nav-icon class
+                         with font-awesome or any other icon font library -->
+
+                    <li class="nav-item has-treeview menu-open">
+                        <a href="#" class="nav-link active">
+                            <i class="nav-icon fas fa-chart-pie"></i>
+                            <p>
+                                Charts
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="flot.html" class="nav-link active">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Flot</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+            <!-- /.sidebar-menu -->
+        </div>
+        <!-- /.sidebar -->
+    </aside>
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h1>Flot Charts</h1>
+                    </div>
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-right">
+                            <li class="breadcrumb-item"><a href="#">Inicio</a></li>
+                            <li class="breadcrumb-item active">Ping</li>
+                        </ol>
+                    </div>
+                </div>
+            </div><!-- /.container-fluid -->
+        </section>
+
+        <!-- Main content -->
+        <section class="content">
+
+
+            <div class="input-group input-group-sm">
+                <input class="form-control form-control-navbar" type="search" id='pingurl' value='http://localhost'
+                       placeholder="Search" aria-label="Search">
+                <div class="input-group-append">
+                    <button class="btn btn-navbar" type="submit" onclick="do_ping()" id="btn-cargar">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+                <div class="col-md-2 pull-rigth">
+                    <label>Ping</label>
+                    <label id="valor-ping" value="0">0</label>
+                </div>
+            </div>
+
+
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12">
+                        <!-- interactive chart -->
+                        <div class="card card-primary card-outline">
+                            <div class="card-header">
+                                <h3 class="card-title">
+                                    <i class="far fa-chart-bar"></i>
+                                    Ping Interactivo
+                                </h3>
+
+                                <div class="card-tools">
+                                    Tiempo Real
+                                    <div class="btn-group" id="realtime" data-toggle="btn-toggle">
+                                        <button type="button" class="btn btn-default btn-sm active" data-toggle="on">
+                                            On
+                                        </button>
+                                        <button type="button" class="btn btn-default btn-sm" data-toggle="off">Off
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div id="interactive" style="height: 300px;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="col-md-10">
+            <div class="card card-primary card-outline">
+                <div class="card-header">
+                    <h3 class="card-title">
+                        <i class="far fa-chart-bar"></i>
+                        Yate... Cualquier donación es cariño jajajaja, haga doble clic en la grafica para ampliar cuando el ping es muy alto.
+                    </h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Control Sidebar -->
+    <aside class="control-sidebar control-sidebar-dark">
+        <!-- Control sidebar content goes here -->
+    </aside>
+    <!-- /.control-sidebar -->
+</div>
+<!-- ./wrapper -->
+
+<!-- jQuery -->
+<script src="plugins/jquery/jquery.min.js"></script>
+<!-- jQuery UI -->
+<script src="plugins/jquery-ui/jquery-ui.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- AdminLTE App -->
+<script src="dist/js/adminlte.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="dist/js/demo.js"></script>
+<!-- FLOT CHARTS -->
+<script src="plugins/flot/jquery.flot.js"></script>
+<!-- FLOT RESIZE PLUGIN - allows the chart to redraw when the window is resized -->
+<script src="plugins/flot-old/jquery.flot.resize.min.js"></script>
+<!-- FLOT PIE PLUGIN - also used to draw donut charts -->
+<script src="plugins/flot-old/jquery.flot.pie.min.js"></script>
+<!-- Page script -->
+<script src="plugins/flot/ping.js"></script>
+<script>
+
+    $(document).ready(function () {
+
+// AL CARGAR EL DOCUMENTO
+        $('#btn-cargar').click();
+
+    });
+
+    // tiempo expresado en milisegundos
+    var tiempo = 3000;
+    // intervalo
+    var interval = setInterval(function () {
+        // Se ejecuta cada 3 segundos
+        $('#btn-cargar').trigger('click');
+    }, tiempo);
+
+
+    var do_ping = function () {
+        ping(document.getElementById('pingurl').value).then(function (delta) {
+            console.log("ping", delta);
+            $('#valor-ping').text(delta);
+
+        }).catch(function (error) {
+            console.log(String(error));
+        });
+    };
+
+    //console.log('p',$('#valor-ping').value());
+    $(function () {
+
+        // se definen variables de inicio
+        var data = [],
+            totalPoints = 50
+
+        function getRandomData() {
+
+            if (data.length > 0) {
+                data = data.slice(1)
+            }
+
+            // Do a random walk
+            while (data.length < totalPoints) {
+
+                var prev = data.length > 0 ? data[data.length - 1] : 50;
+                y = $('#valor-ping').text();
+
+                if (y < 0) {
+                    y = 0
+                } else if (y > 100) {
+                    y = $('#valor-ping').text()
+                }
+
+                data.push(y)
+            }
+
+            // Se egenran valores de X y Y
+            var res = []
+            for (var i = $('#valor-ping').text(); i < data.length; ++i) {
+                console.log(i, data.length)
+
+                res.push([i, data[i]])
+            }
+
+            return res
+        }
+
+        var interactive_plot = $.plot('#interactive', [
+                {
+                    data: getRandomData(),
+                }
+            ],
+            {
+                grid: {
+                    borderColor: '#f3f3f3',
+                    borderWidth: 1,
+                    tickColor: '#f3f3f3'
+                },
+                series: {
+                    color: '#3c8dbc',
+                    lines: {
+                        lineWidth: 2,
+                        show: true,
+                        fill: true,
+                    },
+                },
+                yaxis: {
+                    min: 0,
+                    max: 100,
+                    show: true
+                },
+                xaxis: {
+                    show: true
+                }
+            }
+        )
+
+        var updateInterval = 3000 //intervalo de actualizacion grafica
+        var realtime = 'on' //defecto
+        function update() {
+
+            interactive_plot.setData([getRandomData()])
+
+            // Since the axes don't change, we don't need to call plot.setupGrid()
+            interactive_plot.draw()
+            if (realtime === 'on') {
+                setTimeout(update, updateInterval)
+            }
+        }
+
+        //INITIALIZE REALTIME DATA FETCHING
+        if (realtime === 'on') {
+            update()
+        }
+        //REALTIME TOGGLE
+        $('#realtime .btn').click(function () {
+            if ($(this).data('toggle') === 'on') {
+                realtime = 'on'
+            } else {
+                realtime = 'off'
+            }
+            update()
+        })
+
+    })
+
+
+</script>
+</body>
+</html>
